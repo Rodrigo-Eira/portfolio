@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft Sans Serif', serif;
+}
+
+header {
+    height: 10vh;
+    background: #00758f;
+    font-weight: 600;
+    color: white;
+    top: 0;
+    /* alinhando logo e menu */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px groove #fff;
+}
+
+header div {
+    font-size: 2em;
+    padding: 1em;
+}
+
+header nav {
+    display: flex;
+    justify-contents: flex-end;
+}
+
+
+nav a {
+    padding: 0 1em;
+    text-decoration: none;
+    font-size: 1rem;
+    color: lightgray;
+}
+
+
+main {
+    background-color: transparent;
+    padding: 4em 4em;
+}
+
+footer {
+    height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2vw;
+    align-items: center;
+}
+
+nav a:hover {
+    color: aqua;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
