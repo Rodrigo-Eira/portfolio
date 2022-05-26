@@ -33,3 +33,27 @@ def site_page_view(request):
 
 def web_page_view(request):
     return render(request, 'portfolio/web.html')
+
+
+def resolution_path_posts(instance, filename):
+    return f'posts/{instance.id}/'
+
+
+def resolution_path_projects(instance, filename):
+    return f'projects/{instance.id}/'
+
+
+def resolution_path_noticias(instance, filename):
+    return f'noticias/{instance.id}/'
+
+
+def resolution_path_tecnologias(instance, filename):
+    return f'tecnologias/{instance.id}/'
+
+
+def resolution_path_tfc(instance, filename):
+    return f'tfc/{instance.id}/'
+
+
+def resolution_path_interesses(instance, filename):
+    return f'interesses/{instance.id}/'
