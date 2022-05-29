@@ -113,7 +113,7 @@ class Projeto(models.Model):
 
 
 class Cadeira(models.Model):
-    nome = models.CharField(max_length=20)
+    nome = models.CharField(max_length=50)
     ano = models.IntegerField()
     ano_letivo = models.IntegerField()
     semestre = models.CharField(max_length=20)
@@ -126,4 +126,4 @@ class Cadeira(models.Model):
     link = models.URLField("Link", max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return self.nome[:20]
+        return self.nome[:50]
