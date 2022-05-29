@@ -62,3 +62,10 @@ a {
 a:hover {
     color: white;
 }
+
+.login {
+    border-radius: 10px; /* arredonda os cantos */
+    border: 2px groove #fff;
+    background-color: darkcyan;
+
+}

@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from environs import Env
 from pathlib import Path
-import os
 
 env = Env()
 env.read_env()
@@ -41,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'portfolio',
 ]
 
@@ -124,6 +125,14 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
+CLOUDINARY_STORAGE = {
+  'CLOUD_NAME': "dqu9sn02d",
+  'API_KEY': "176212923237495",
+  'API_SECRET': "npVL16WrXY9-9UFOD4CjMpfcXmI",
+}
+
+MEDIA_URL = '/portfolio/'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 

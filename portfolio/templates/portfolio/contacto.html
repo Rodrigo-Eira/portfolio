@@ -1,6 +1,13 @@
 {% extends 'portfolio/layout.html' %}
+{% load static %}
 
 {% block main %}
-	<h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'portfolio/css/aboutme.css' %}">
+    <h3>Castanheira do Ribatejo, Lisboa</h3>
+    <a href="https://www.linkedin.com/in/rodrigo-eira-7542811b3/" class="btn btn-success btn-block">Linkedin</a>
+    <a href="https://github.com/Rodrigo-Eira" class="btn btn-success btn-block">Github</a>
+
+
 {% endblock %}

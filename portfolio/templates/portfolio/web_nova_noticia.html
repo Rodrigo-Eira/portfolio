@@ -1,0 +1,18 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'portfolio/css/novo.css' %}">
+    <form action="" method="POST" class="formulario" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Nova notícia</h3>
+
+        {{ form.as_p }}
+        <input type="submit" value="Gravar" class="btn btn-success">
+        <a href="{% url 'portfolio:web' %}" class="btn btn-danger">Cancelar</a>
+    </form>
+
+
+{% endblock %}

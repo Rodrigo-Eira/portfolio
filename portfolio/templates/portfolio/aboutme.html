@@ -1,6 +1,294 @@
 {% extends 'portfolio/layout.html' %}
+{% load static %}
 
 {% block main %}
-	<h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'portfolio/css/aboutme.css' %}">
+    <body>
+    <h1 class="principal">Unidades Curriculares</h1>
+
+    <h1>1º ano</h1>
+    <div class="anos">
+        <h2>1º semestre</h2>
+        <div class="semestre">
+            {% for cadeira in cadeiras_1ano_1semestre %}
+                <div class="cadeira">
+                    <h3>{{ cadeira.nome }} </h3>
+                    <p>{{ cadeira.descricao }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}  </p>
+                    <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
+                    <p>Projeto desenvolvido:
+                        {% for projeto in cadeira.projetoRealizado %}
+                            {{ projeto }}
+                        {% empty %}
+                            Sem projeto
+                        {% endfor %}
+                    </p>
+                    <p>Ranking: {{ cadeira.ranking }} ⭐</p>
+                    <p>ECTS: {{ cadeira.ects }}</p>
+                    <div class="links">
+                        <a href={{ cadeira.link }}>
+                            <button>Página da cadeira</button>
+                        </a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:aboutme_edita_cadeira' cadeira.id %}"
+                               class="btn btn-secondary">Editar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="sem_cadeira">
+                    <h3>Sem Unidades Curriculares associadas</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <h2>2º semestre</h2>
+        <div class="semestre">
+            {% for cadeira in cadeiras_1ano_2semestre %}
+                <div class="cadeira">
+                    <h3>{{ cadeira.nome }} </h3>
+                    <p>{{ cadeira.descricao }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Projeto desenvolvido:
+                        {% for projeto in cadeira.projetos %}
+                            {{ projeto.nome }}
+                        {% empty %}
+                            Sem projeto
+                        {% endfor %}
+                    </p>
+                    <p>Ranking: {{ cadeira.ranking }} ⭐</p>
+                    <p>ECTS: {{ cadeira.ects }}</p>
+                    <div class="links">
+                        <a href={{ cadeira.link }}>
+                            <button>Página da cadeira</button>
+                        </a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:aboutme_edita_cadeira' cadeira.id %}"
+                               class="btn btn-secondary">Editar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="sem_cadeira">
+                    <h3>Sem Unidades Curriculares associadas</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h1>2º ano</h1>
+    <div class="anos">
+        <h2>1º semestre</h2>
+        <div class="semestre">
+            {% for cadeira in cadeiras_2ano_1semestre %}
+                <div class="cadeira">
+                    <h3>{{ cadeira.nome }} </h3>
+                    <p>{{ cadeira.descricao }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Projeto desenvolvido:
+                        {% for projeto in cadeira.projetos %}
+                            {{ projeto.nome }}
+                        {% empty %}
+                            Sem projeto
+                        {% endfor %}
+                    </p>
+                    <p>Ranking: {{ cadeira.ranking }} ⭐</p>
+                    <p>ECTS: {{ cadeira.ects }}</p>
+                    <div class="links">
+                        <a href={{ cadeira.link }}>
+                            <button>Página da cadeira</button>
+                        </a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:aboutme_edita_cadeira' cadeira.id %}"
+                               class="btn btn-secondary">Editar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="sem_cadeira">
+                    <h3>Sem Unidades Curriculares associadas</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <h2>2º semestre</h2>
+        <div class="semestre">
+            {% for cadeira in cadeiras_2ano_2semestre %}
+                <div class="cadeira">
+                    <h3>{{ cadeira.nome }} </h3>
+                    <p>{{ cadeira.descricao }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Projeto desenvolvido:
+                        {% for projeto in cadeira.projetos %}
+                            {{ projeto.nome }}
+                        {% empty %}
+                            Sem projeto
+                        {% endfor %}
+                    </p>
+                    <p>Ranking: {{ cadeira.ranking }} ⭐</p>
+                    <p>ECTS: {{ cadeira.ects }}</p>
+                    <div class="links">
+                        <a href={{ cadeira.link }}>
+                            <button>Página da cadeira</button>
+                        </a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:aboutme_edita_cadeira' cadeira.id %}"
+                               class="btn btn-secondary">Editar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="sem_cadeira">
+                    <h3>Sem Unidades Curriculares associadas</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h1>3º ano</h1>
+    <div class="anos">
+        <h2>1º semestre</h2>
+        <div class="semestre">
+            {% for cadeira in cadeiras_3ano_1semestre %}
+                <div class="cadeira">
+                    <h3>{{ cadeira.nome }} </h3>
+                    <p>{{ cadeira.descricao }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Projeto desenvolvido:
+                        {% for projeto in cadeira.projetos %}
+                            {{ projeto.nome }}
+                        {% empty %}
+                            Sem projeto
+                        {% endfor %}
+                    </p>
+                    <p>Ranking: {{ cadeira.ranking }} ⭐</p>
+                    <p>ECTS: {{ cadeira.ects }}</p>
+                    <div class="links">
+                        <a href={{ cadeira.link }}>
+                            <button>Página da cadeira</button>
+                        </a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:aboutme_edita_cadeira' cadeira.id %}"
+                               class="btn btn-secondary">Editar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="sem_cadeira">
+                    <h3>Sem Unidades Curriculares associadas</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <h2>2º semestre</h2>
+        <div class="semestre">
+            {% for cadeira in cadeiras_3ano_2semestre %}
+                <div class="cadeira">
+                    <h3>{{ cadeira.nome }} </h3>
+                    <p>{{ cadeira.descricao }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.get_docente_teorica_name }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.get_docente_pratica_name }}</p>
+                    <p>Projeto desenvolvido:
+                        {% for projeto in cadeira.projetos %}
+                            {{ projeto.nome }}
+                        {% empty %}
+                            Sem projeto
+                        {% endfor %}
+                    </p>
+                    <p>Ranking: {{ cadeira.ranking }} ⭐</p>
+                    <p>ECTS: {{ cadeira.ects }}</p>
+                    <div class="links">
+                        <a href={{ cadeira.link }}>
+                            <button>Página da cadeira</button>
+                        </a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:aboutme_edita_cadeira' cadeira.id %}"
+                               class="btn btn-secondary">Editar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="sem_cadeira">
+                    <h3>Sem Unidades Curriculares associadas</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'portfolio:aboutme_nova_cadeira' %}" class="btn btn-success btn-block"> Adicionar unidade
+            curricular</a>
+    {% endif %}
+
+    <h1 class="principal">Educação</h1>
+    <div class="escolas">
+        <table>
+            <thead>
+            <tr>
+                <td>Instituição</td>
+                <td>Localização</td>
+                <td>Período</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Agrupamento de Escolas D. António de Ataíde</td>
+                <td>Castanheira do Ribatejo</td>
+                <td>2011-2013</td>
+            </tr>
+            <tr>
+                <td>Agrupamento de Escolas Professor Reynaldo dos Santos</td>
+                <td>Vila Franca de Xira</td>
+                <td>2013-2020</td>
+            </tr>
+            <tr>
+                <td>Universidade Lusófona</td>
+                <td>Lisboa — Campo Grande</td>
+                <td>2020 - presente</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1 class="principal">Aptidões e Competências</h1>
+    <div class="aptidoes">
+        <ul>
+            {% for competencia in competencias %}
+                <li>{{ competencia.nome }}</li>
+            {% empty %}
+                <h3 class="se">Sem Aptidões associadas</h3>
+            {% endfor %}
+        </ul>
+    </div>
+    <h1 class="principal">Interesses e Hobbies</h1>
+    <div class="interesses">
+        <ul>
+            <li>Futebol</li>
+            <li>Séries</li>
+            <li>Tecnologias</li>
+            <li>Jogos de vídeo</li>
+            <li>Cozinhar</li>
+        </ul>
+    </div>
+    <h1 class="principal">Idiomas</h1>
+    <div class="idiomas">
+        <table>
+            <thead>
+            <tr>
+                <td>Idioma</td>
+                <td>Nível</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Portguês</td>
+                <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>Inglês</td>
+                <td>⭐⭐⭐</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </body>
 {% endblock %}

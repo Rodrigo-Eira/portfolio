@@ -1,0 +1,52 @@
+main {
+    /* como o menu ocupa 10vh, este tem 90vh para o vermo inteiro. */
+    height: 90vh;
+    width: 100%;
+    background-image: url("../images/hero.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 100px;
+    background-color: #00758f;
+    color: white;
+    opacity: 80%;
+}
+
+main > h1 {
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'Microsoft Sans Serif', serif;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+article {
+    /* definindo altura e cor */
+    padding: 100px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}
+
+footer{
+    background-color: #00758f;
+    color: white;
+    opacity: 80%;
+}
+
+.texto {
+    width: 90%;
+    height: max-content;
+    border-top: 2px groove #fff;
+    border-left: 2px groove #fff;
+    padding: 20px;
+    border-radius: 10px; /* arredonda os cantos */
+    box-shadow: 5px 5px 15px grey;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    background-color: darkcyan;
+    margin-top: 20px;
+}
+
+
+
