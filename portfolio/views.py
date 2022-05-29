@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-import matplotlib
 from matplotlib import pyplot as plt
 
 from .models import Cadeira
@@ -21,9 +20,6 @@ from .forms import CadeiraForm
 from .forms import ProjetoForm
 from .forms import NoticiaForm
 from .forms import TecnologiaForm
-
-# Create your views here.
-matplotlib.use('TkAgg')
 
 
 def home_page_view(request):
