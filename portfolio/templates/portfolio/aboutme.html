@@ -49,8 +49,8 @@
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
-                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
-                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
                         {% for projeto in cadeira.projetoRealizado %}
                             {{ projeto }}
@@ -85,8 +85,8 @@
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
-                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
-                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
                         {% for projeto in cadeira.projetoRealizado %}
                             {{ projeto }}
@@ -118,8 +118,8 @@
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
-                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
-                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
                         {% for projeto in cadeira.projetoRealizado %}
                             {{ projeto }}
@@ -154,8 +154,8 @@
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
-                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica.nome }}</p>
-                    <p>Professor/a das práticas: {{ cadeira.docente_pratica.nome }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
                         {% for projeto in cadeira.projetoRealizado %}
                             {{ projeto }}
@@ -187,8 +187,8 @@
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
-                    <p>Professor/a das teóricas: {{ cadeira.get_docente_teorica_name }}</p>
-                    <p>Professor/a das práticas: {{ cadeira.get_docente_pratica_name }}</p>
+                    <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
+                    <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
                         {% for projeto in cadeira.projetoRealizado %}
                             {{ projeto }}
