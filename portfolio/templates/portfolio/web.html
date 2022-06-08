@@ -8,7 +8,9 @@
     {% for tecnologia in tecnologias %}
         <div class="tecnologia">
             <h3>{{ tecnologia.nome }} / {{ tecnologia.acronimo }}</h3>
-            <p>Criador: {{ tecnologia.criador }}</p>
+            {% for criador in tecnologia.criador %}
+                <p>Criador: {{ criador.nome }}</p>
+            {% endfor %}
             <p>Ano de criação: {{ tecnologia.ano }}</p>
             <p>{{ tecnologia.decricao }}</p>
             <a href="{{ tecnologia.link }}" class="btn btn-success btn-block">Ver mais</a>
@@ -17,7 +19,7 @@
                    class="btn btn-secondary">Editar</a>
             {% endif %}
         </div>
-    {% empty %}
+        {% empty %}
         <div class="tecnologia">
             <h3>Sem Tecnologias associadas</h3>
         </div>
@@ -40,7 +42,7 @@
                 <a href="{% url 'portfolio:web_edita_noticia_view' noticia.pk %}" class="btn btn-secondary">Editar</a>
             {% endif %}
         </div>
-    {% empty %}
+        {% empty %}
         <div class="noticia">
             <h3>Sem Notícias associadas</h3>
         </div>

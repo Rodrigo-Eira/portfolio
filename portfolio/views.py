@@ -14,6 +14,7 @@ from .models import Tecnologia
 from .models import Noticia
 from .models import Pessoa
 from .models import PontuacaoQuizz
+from .models import TFC
 
 from .forms import PostForm
 from .forms import CadeiraForm
@@ -112,7 +113,8 @@ def contacto_page_view(request):
 
 
 def projetos_page_view(request):
-    context = {'projetos': Projeto.objects.all()}
+    context = {'projetos': Projeto.objects.all(),
+               'tfcs': TFC.objects.all()}
     return render(request, 'portfolio/projetos.html', context)
 
 
@@ -150,9 +152,10 @@ def projetos_apaga_projeto_view(request, projeto_id):
 
 
 def quizz_page_view(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.POST['nome'] != '':
         n = request.POST['nome']
         p = 0
+
         if request.POST['opcao'] == 'CSS':
             p = p + 1
         if request.POST['opcao1'] == '2005':
@@ -189,7 +192,12 @@ def site_page_view(request):
 
 
 def web_page_view(request):
-    context = {'tecnologias': Tecnologia.objects.all(),
+    elementos = Tecnologia.objects.all()
+
+    for elemento in elementos:
+        elemento.__dict__["criador"] = list(Pessoa.objects.filter(criador__id=elemento.id))
+
+    context = {'tecnologias': elementos,
                'noticias': Noticia.objects.all()}
     return render(request, 'portfolio/web.html', context)
 

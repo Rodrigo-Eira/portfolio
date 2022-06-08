@@ -48,6 +48,7 @@ footer {
     justify-content: flex-end;
     padding: 0 2vw;
     align-items: center;
+    z-index: 0
 }
 
 nav a:hover {
@@ -68,4 +69,17 @@ a:hover {
     border: 2px groove #fff;
     background-color: darkcyan;
 
+}
+
+#time {
+    position: fixed;
+    border: 2px groove #fff;
+    padding: 8px;
+    max-width: 18%;
+    right: 10px;
+    bottom: 10px;
+    z-index: 999;
+    background-color: #1b1b1b;
+    cursor: pointer;
+    opacity: 80%;
 }

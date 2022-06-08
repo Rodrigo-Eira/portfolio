@@ -7,6 +7,7 @@ from .models import Noticia
 from .models import Tecnologia
 
 
+
 class PostForm(ModelForm):
     descricao = forms.CharField(widget=forms.Textarea(attrs={"rows": 4}))
 
@@ -45,3 +46,4 @@ class TecnologiaForm(ModelForm):
     class Meta:
         model = Tecnologia
         fields = '__all__'
+

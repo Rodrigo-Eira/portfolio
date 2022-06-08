@@ -2,12 +2,47 @@
 {% load static %}
 <html lang="en">
 <head>
+    <script>
+        function busca_tempo() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('estilo_tempo()', refresh)
+        }
+
+        function estilo_tempo() {
+            var x = new Date()
+            var mes = x.getMonth() + 1;
+            var dia = x.getDate();
+            var ano = x.getFullYear();
+            if (mes < 10) {
+                mes = '0' + mes;
+            }
+            if (dia < 10) {
+                dia = '0' + dia;
+            }
+
+            var hora = x.getHours();
+            var minuto = x.getMinutes();
+            var segundo = x.getSeconds();
+            if (hora < 10) {
+                hora = '0' + hora;
+            }
+            if (minuto < 10) {
+                minuto = '0' + minuto;
+            }
+            if (segundo < 10) {
+                segundo = '0' + segundo;
+            }
+            const relogio = mes + '-' + dia + '-' + ano + ' ' + hora + ':' + minuto + ':' + segundo
+            document.getElementById('clock').innerHTML = relogio;
+            busca_tempo();
+        }
+    </script>
     <meta charset="UTF-8">
     <title>Rodrigo Eira</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos.css' %}">
 </head>
-<body>
+<body onload=estilo_tempo()>
 <header>
     <a href="{% url 'portfolio:home' %}" class="nome">
         <div>Rodrigo Eira</div>
@@ -27,9 +62,11 @@
             <a href="{% url 'portfolio:login' %} " class="login">Login</a>
         {% endif %}
     </nav>
+
 </header>
 
 <main>
+    <p id="time"><span id="clock"></span></p>
     {% block main %}
     {% endblock main %}
 </main>

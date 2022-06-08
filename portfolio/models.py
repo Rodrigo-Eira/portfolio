@@ -58,7 +58,7 @@ class Tecnologia(models.Model):
     decricao = models.CharField(max_length=2000)
     acronimo = models.CharField(max_length=20)
     ano = models.IntegerField()
-    criador = models.ManyToManyField(Pessoa)
+    criador = models.ManyToManyField(Pessoa, related_name='criador')
     link = models.URLField("Site Oficial", max_length=200, null=True, blank=True)
     logotipo = models.ImageField(upload_to=resolution_path_tecnologias, null=True, blank=True)
 
@@ -89,15 +89,18 @@ class PontuacaoQuizz(models.Model):
 
 
 class TFC(models.Model):
-    nome = models.CharField(max_length=20)
+    nome = models.CharField(max_length=50)
     ano_realizacao = models.IntegerField()
     resumo = models.TextField()
-    autor = models.ForeignKey(Pessoa, on_delete=models.CASCADE, related_name='autor', null=True)
-    orientador = models.ForeignKey(Pessoa, on_delete=models.CASCADE, related_name='orentador', null=True)
+    autores = models.ManyToManyField(Pessoa, blank=True, related_name='autores')
+    orientador = models.ForeignKey(Pessoa, on_delete=models.CASCADE, related_name='orientador', null=True)
     youtube = models.URLField("Youtube", max_length=200, null=True, blank=True)
     gitHub = models.URLField("GitHub", max_length=200, null=True, blank=True)
     relatorio = models.URLField("Relatório", max_length=200, null=True, blank=True)
     imagem = models.ImageField(upload_to=resolution_path_tfc, null=True, blank=True)
+
+    def __str__(self):
+        return self.nome[:50]
 
 
 class Projeto(models.Model):
@@ -127,3 +130,4 @@ class Cadeira(models.Model):
 
     def __str__(self):
         return self.nome[:50]
+

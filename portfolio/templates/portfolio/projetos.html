@@ -32,5 +32,31 @@
             <a href="{% url 'portfolio:projetos_novo_projeto' %}" class="btn btn-success btn-block">Novo Projeto</a>
         {% endif %}
     </div>
+    <br>
+    <br>
+    <br>
+    <div class="tfcs">
+        <h1 class="center">Trabalhos de Final de Curso interessantes</h1>
+        {% for tfc in tfcs %}
+            <div class="tfc">
+                <div class="resumo">
+                    <h3>{{ tfc.nome }}</h3>
+                    <p>{{ tfc.ano_realizacao }}</p>
+                    <p>{{ tfc.resumo }}</p>
+                    <p>Autores:
+                        {% for autor in tfc.autores.all %}
+                            {{ autor.nome }};
+                        {% endfor %}
+                    </p>
+                    <p>Orientador: {{ tfc.orientador }}</p>
+                    <a href="{{ tfc.gitHub }}" class="btn btn-secondary">GitHub</a>
+                    <a href="{{ tfc.youtube }}" class="btn btn-secondary">Youtube</a>
+                    <a href="{{ tfc.relatorio }}" class="btn btn-secondary">Relatório</a>
+                </div>
+                <img src="{{ tfc.imagem.url }}">
+
+            </div>
+        {% endfor %}
+    </div>
     </body>
 {% endblock %}

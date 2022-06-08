@@ -8,31 +8,31 @@
     <form method="post">
         {% csrf_token %}
         <label>Nome:</label><br>
-        <input type="text" name="nome"><br><br>
+        <input type="text" name="nome" required><br><br>
         <h3>Perguntas:</h3><br>
         <h3>Qual destas linguagem é utilizada para a estilização de ficheiros HTML?</h3>
-        <p><input type="radio" name="opcao" value="CSS">CSS</p>
+        <p><input type="radio" name="opcao" value="CSS" required>CSS</p>
         <p><input type="radio" name="opcao" value="Java">Java</p>
         <p><input type="radio" name="opcao" value="C#">C#</p>
         <p><input type="radio" name="opcao" value="Python">Python</p>
         <br>
 
         <h3>Em que ano foi criada a tecnologia Django?</h3>
-        <p><input type="radio" name="opcao1" value="2000">2000</p>
+        <p><input type="radio" name="opcao1" value="2000" required>2000</p>
         <p><input type="radio" name="opcao1" value="2002">2002</p>
         <p><input type="radio" name="opcao1" value="2005">2005</p>
         <p><input type="radio" name="opcao1" value="1999">1999</p>
         <br>
 
         <h3>Qual o URL do primeiro site criado?</h3>
-        <p><input type="radio" name="opcao2" value="w3schools">https://www.w3schools.com/default.asp</p>
+        <p><input type="radio" name="opcao2" value="w3schools" required>https://www.w3schools.com/default.asp</p>
         <p><input type="radio" name="opcao2" value="ulusofona">https://www.ulusofona.pt/</p>
         <p><input type="radio" name="opcao2" value="oldweb">https://oldweb.today/#19960101/http://geocities.com/</p>
         <p><input type="radio" name="opcao2" value="info">http://info.cern.ch/hypertext/WWW/TheProject.html</p>
         <br>
 
         <h3>Em que país foi criada a linguagem HTML?</h3>
-        <p><input type="radio" name="opcao3" value="Alemanha">Alemanha</p>
+        <p><input type="radio" name="opcao3" value="Alemanha" required>Alemanha</p>
         <p><input type="radio" name="opcao3" value="Portugal">Portugal</p>
         <p><input type="radio" name="opcao3" value="Suíça">Suíça</p>
         <p><input type="radio" name="opcao3" value="Canadá">Canadá</p>

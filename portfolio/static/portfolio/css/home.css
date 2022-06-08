@@ -9,7 +9,7 @@ main {
     padding: 100px;
     background-color: #00758f;
     color: white;
-    opacity: 80%;
+    opacity: 100%;
 }
 
 main > h1 {
@@ -30,7 +30,7 @@ article {
 footer{
     background-color: #00758f;
     color: white;
-    opacity: 80%;
+    opacity: 100%;
 }
 
 .texto {

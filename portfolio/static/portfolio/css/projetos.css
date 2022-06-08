@@ -1,22 +1,22 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: cadetblue;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
+    background-color: cadetblue;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
 h1 {
-  font-size: 4vw;
+    font-size: 4vw;
 }
 
 p {
-  margin: 0 0 13px 0;
+    margin: 0 0 13px 0;
 }
 
 a {
@@ -30,59 +30,59 @@ a:hover {
 
 
 .center {
-  text-align: center;
-  font-weight: 600;
+    text-align: center;
+    font-weight: 600;
 }
 
 .container {
-  width: 95%;
-  max-width: 1220px;
-  margin: 0 auto;
+    width: 95%;
+    max-width: 1220px;
+    margin: 0 auto;
 }
 
 .projeto {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    position: relative;
 }
 
 .projeto_nome {
-  font-size: 3vw;
-  font-weight: 600;
-  padding: 10px 2px;
-  position: sticky;
-  top: 0;
-  text-align: center;
-  height: calc(10vw + 20px);
-  transition: all 0.2s ease-in;
+    font-size: 3vw;
+    font-weight: 600;
+    padding: 10px 2px;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    height: calc(10vw + 20px);
+    transition: all 0.2s ease-in;
 }
 
 .projeto_descricao {
-  border-top: 2px solid #fff;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-gap: 10px;
-  padding: 15px 0;
+    border-top: 2px solid #fff;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 10px;
+    padding: 15px 0;
 }
 
 .projeto_nome .titulo {
-  font-weight: 600
+    font-weight: 600
 }
 
 .projeto_descricao .descricao {
-  line-height: 26px;
+    line-height: 26px;
 }
 
 @media (max-width: 600px) {
-  .projeto_descricao {
-    grid-template-columns: 1fr;
-  }
+    .projeto_descricao {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 576px) {
-  .projeto_descricao .descricao {
-    font-size: 15px;
-  }
+    .projeto_descricao .descricao {
+        font-size: 15px;
+    }
 }
 
 .descricao img {
@@ -92,6 +92,26 @@ a:hover {
     width: 55%;
     height: 55%;
 }
+
+.tfc {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.tfc img {
+    margin: 20px;
+    width: 23%;
+}
+
+
+
+.resumo {
+    border-top: 2px solid #fff;
+    margin: 20px;
+}
+
+
 
 
 
