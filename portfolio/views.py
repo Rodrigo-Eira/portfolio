@@ -17,6 +17,7 @@ from .models import PontuacaoQuizz
 from .models import TFC
 
 from .forms import PostForm
+from .forms import TFCForm
 from .forms import CadeiraForm
 from .forms import ProjetoForm
 from .forms import NoticiaForm
@@ -150,6 +151,38 @@ def projetos_apaga_projeto_view(request, projeto_id):
     Projeto.objects.get(pk=projeto_id).delete()
     return HttpResponseRedirect(reverse('portfolio:projetos'))
 
+@login_required
+def tfcs_novo_tfc_view(request):
+    if request.method == "POST":
+        form = TFCForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': TFCForm()}
+
+    return render(request, 'portfolio/tfcs_novo_tfc.html', context)
+
+
+@login_required
+def tfcs_edita_tfc_view(request, tfc_id):
+    tfc = TFC.objects.get(pk=tfc_id)
+    if request.method == "POST":
+        form = TFCForm(request.POST, request.FILES, instance=tfc)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': TFCForm(instance=tfc), 'tfc_id': tfc_id}
+
+    return render(request, 'portfolio/tfcs_edita_tfc.html', context)
+
+
+@login_required
+def tfcs_apaga_tfc_view(request, tfc_id):
+    TFC.objects.get(pk=tfc_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
+
 
 def quizz_page_view(request):
     if request.method == 'POST' and request.POST['nome'] != '':
@@ -188,14 +221,21 @@ def quiz_apaga(request):
 
 
 def site_page_view(request):
-    return render(request, 'portfolio/site.html')
+    elementos = Tecnologia.objects.all()
+
+    for elemento in elementos:
+        elemento.__dict__["criadores"] = list(Pessoa.objects.filter(criador__id=elemento.id))
+
+    context =  {'tecnologias': elementos}
+
+    return render(request, 'portfolio/site.html', context)
 
 
 def web_page_view(request):
     elementos = Tecnologia.objects.all()
 
     for elemento in elementos:
-        elemento.__dict__["criador"] = list(Pessoa.objects.filter(criador__id=elemento.id))
+        elemento.__dict__["criadores"] = list(Pessoa.objects.filter(criador__id=elemento.id))
 
     context = {'tecnologias': elementos,
                'noticias': Noticia.objects.all()}

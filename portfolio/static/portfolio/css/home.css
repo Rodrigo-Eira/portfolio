@@ -17,6 +17,7 @@ main > h1 {
     font-size: 5rem;
     font-family: 'Microsoft Sans Serif', serif;
     color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
 }
 
 article {

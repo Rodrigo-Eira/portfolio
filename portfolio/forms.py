@@ -2,10 +2,10 @@ from django.forms import ModelForm
 from django import forms
 from .models import Post
 from .models import Projeto
+from .models import TFC
 from .models import Cadeira
 from .models import Noticia
 from .models import Tecnologia
-
 
 
 class PostForm(ModelForm):
@@ -21,6 +21,14 @@ class ProjetoForm(ModelForm):
 
     class Meta:
         model = Projeto
+        fields = '__all__'
+
+
+class TFCForm(ModelForm):
+    resumo = forms.CharField(widget=forms.Textarea(attrs={"rows": 4}))
+
+    class Meta:
+        model = TFC
         fields = '__all__'
 
 
@@ -46,4 +54,3 @@ class TecnologiaForm(ModelForm):
     class Meta:
         model = Tecnologia
         fields = '__all__'
-

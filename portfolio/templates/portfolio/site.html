@@ -1,22 +1,44 @@
 {% extends 'portfolio/layout.html' %}
 {% load static %}
 {% block main %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'portfolio/css/site.css' %}">
-    <h3>A modelação da base de dados deste site foi feita da seguinte maneira</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.</p>
+    <h1 class="principal">A modelação da base de dados deste site</h1>
+    <p>Foram utilizados várias relações entre as diferentes classes criadas.
+        As relações principais são entre a classe Cadeira e a classe Pessoa, pois desta maneira
+        é possível relacionar os professores (Pessoa) com a cadeira (Cadeira). A classe TFC
+        relaciona-se com a classe Pessoa de diferentes maneiras, por exemplo: orientadores e autores.</p>
+    </ul>
+    <h3>Classes criadas:</h3>
+    <ul>
+        <li>Cadeira</li>
+        <li>Post</li>
+        <li>Competencia</li>
+        <li>Pessoa</li>
+        <li>Tecnologia</li>
+        <li>Interesse</li>
+        <li>Noticia</li>
+        <li>PontuacaoQuizz</li>
+        <li>TFC</li>
+        <li>Projeto</li>
+    </ul>
     <br>
-    <br>
-    <br>
-    <h3>Tecnologias utilizadas na criação do site</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.</p>
+    <h1 class="principal">Tecnologias utilizadas na criação do site</h1>
+    {% for tecnologia in tecnologias %}
+        {% if tecnologia.nome == "HTML" or tecnologia.nome == "CSS"  or tecnologia.nome == "Python" or tecnologia.nome == "Django"  or tecnologia.nome == "Heroku" or tecnologia.nome == "JavaScript" %}
+            <div class="tecnologia">
+                <h3>{{ tecnologia.nome }} / {{ tecnologia.acronimo }}</h3>
+                <p>Criador:
+                    {% for criador in tecnologia.criadores %}
+                        {{ criador.nome }};
+                    {% endfor %}
+                </p>
+                <p>Ano de criação: {{ tecnologia.ano }}</p>
+                <p>{{ tecnologia.decricao }}</p>
+                <a href="{{ tecnologia.link }}" class="btn btn-success btn-block">Ver mais</a>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <h3 class="blog">Deixe um comentário na área do <a href="{% url 'portfolio:blog' %}">Blog</a></h3>
 {% endblock %}
