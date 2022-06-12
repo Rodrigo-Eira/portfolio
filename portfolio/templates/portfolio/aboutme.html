@@ -19,8 +19,8 @@
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}  </p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeira.projetoRealizado %}
-                            {{ projeto }}
+                        {% for projeto in cadeiras_1ano_1semestre.projetos %}
+                            {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
                         {% endfor %}
@@ -52,8 +52,8 @@
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeira.projetoRealizado %}
-                            {{ projeto }}
+                        {% for projeto in cadeiras_1ano_2semestre.projetos %}
+                            {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
                         {% endfor %}
@@ -88,8 +88,8 @@
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeira.projetoRealizado %}
-                            {{ projeto }}
+                        {% for projeto in cadeiras_2ano_1semestre.projetos %}
+                            {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
                         {% endfor %}
@@ -121,8 +121,8 @@
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeira.projetoRealizado %}
-                            {{ projeto }}
+                        {% for projeto in cadeiras_2ano_2semestre.projetos %}
+                            {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
                         {% endfor %}
@@ -157,8 +157,8 @@
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeira.projetoRealizado %}
-                            {{ projeto }}
+                        {% for projeto in cadeiras_3ano_1semestre.projetos %}
+                            {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
                         {% endfor %}
@@ -190,8 +190,8 @@
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeira.projetoRealizado %}
-                            {{ projeto }}
+                        {% for projeto in cadeiras_3ano_2semestre.projetos %}
+                            {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
                         {% endfor %}

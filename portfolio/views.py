@@ -31,13 +31,17 @@ def home_page_view(request):
 def aboutme_page_view(request):
     elementos = Cadeira.objects.all()
 
+    for elemento in elementos:
+        elemento.__dict__["projetos"] = list(Projeto.objects.filter(projetos__id=elemento.id))
+
     context = {'cadeiras_1ano_1semestre': elementos.filter(semestre='1ºsemestre', ano=1),
                'cadeiras_1ano_2semestre': elementos.filter(semestre='2ºsemestre', ano=1),
                'cadeiras_2ano_1semestre': elementos.filter(semestre='1ºsemestre', ano=2),
                'cadeiras_2ano_2semestre': elementos.filter(semestre='2ºsemestre', ano=2),
                'cadeiras_3ano_1semestre': elementos.filter(semestre='1ºsemestre', ano=3),
                'cadeiras_3ano_2semestre': elementos.filter(semestre='2ºsemestre', ano=3),
-               'competencias': Competencia.objects.all()}
+               'competencias': Competencia.objects.all(),
+               }
 
     return render(request, 'portfolio/aboutme.html', context)
 
@@ -226,7 +230,7 @@ def site_page_view(request):
     for elemento in elementos:
         elemento.__dict__["criadores"] = list(Pessoa.objects.filter(criador__id=elemento.id))
 
-    context =  {'tecnologias': elementos}
+    context = {'tecnologias': elementos}
 
     return render(request, 'portfolio/site.html', context)
 
