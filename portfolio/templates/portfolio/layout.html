@@ -3,6 +3,15 @@
 <html lang="en">
 <head>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')// envia GET request ao URL
+                .then(response => response.json()) // Põe a resposta no formato json
+                .then(data => {
+                    document.getElementById("temperatura").innerHTML = "Temperatura Lisboa " + data.data[0].tMin + "º - " + data.data[0].tMax + "º";
+                    console.log(data);
+                }); // põe os dados na consola
+        });
+
         function busca_tempo() {
             var refresh = 1000; // Refresh rate in milli seconds
             mytime = setTimeout('estilo_tempo()', refresh)
@@ -47,6 +56,7 @@
     <a href="{% url 'portfolio:home' %}" class="nome">
         <div>Rodrigo Eira</div>
     </a>
+    <p id="temperatura"></p>
     <nav>
         <a href="{% url 'portfolio:home' %}">Home</a>
         <a href="{% url 'portfolio:aboutme' %}">About me</a>

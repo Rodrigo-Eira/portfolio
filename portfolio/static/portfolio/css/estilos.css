@@ -83,3 +83,9 @@ a:hover {
     cursor: pointer;
     opacity: 80%;
 }
+
+#temperatura {
+    font-weight: normal;
+    font-size: 1rem;
+    color: lightgray;
+}
