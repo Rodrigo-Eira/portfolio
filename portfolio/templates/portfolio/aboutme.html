@@ -12,14 +12,15 @@
     <div class="anos">
         <h2>1º semestre</h2>
         <div class="semestre">
-            {% for cadeira in cadeiras_1ano_1semestre %}
+            {% for cadeira in cadeiras %}
+                {% if cadeira.ano == 1 and cadeira.semestre == "1ºsemestre" %}
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}  </p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeiras_1ano_1semestre.projetos %}
+                        {% for projeto in cadeira.projeto %}
                             {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
@@ -37,6 +38,7 @@
                         {% endif %}
                     </div>
                 </div>
+                {% endif %}
             {% empty %}
                 <div class="sem_cadeira">
                     <h3>Sem Unidades Curriculares associadas</h3>
@@ -45,14 +47,15 @@
         </div>
         <h2>2º semestre</h2>
         <div class="semestre">
-            {% for cadeira in cadeiras_1ano_2semestre %}
+            {% for cadeira in cadeiras %}
+                {% if cadeira.ano == 1 and cadeira.semestre == "2ºsemestre" %}
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeiras_1ano_2semestre.projetos %}
+                        {% for projeto in cadeira.projeto %}
                             {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
@@ -70,6 +73,7 @@
                         {% endif %}
                     </div>
                 </div>
+                {% endif %}
             {% empty %}
                 <div class="sem_cadeira">
                     <h3>Sem Unidades Curriculares associadas</h3>
@@ -81,14 +85,15 @@
     <div class="anos">
         <h2>1º semestre</h2>
         <div class="semestre">
-            {% for cadeira in cadeiras_2ano_1semestre %}
+            {% for cadeira in cadeiras %}
+                {% if cadeira.ano == 2 and cadeira.semestre == "1ºsemestre" %}
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeiras_2ano_1semestre.projetos %}
+                        {% for projeto in cadeira.projeto %}
                             {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
@@ -106,6 +111,7 @@
                         {% endif %}
                     </div>
                 </div>
+                {% endif %}
             {% empty %}
                 <div class="sem_cadeira">
                     <h3>Sem Unidades Curriculares associadas</h3>
@@ -114,14 +120,15 @@
         </div>
         <h2>2º semestre</h2>
         <div class="semestre">
-            {% for cadeira in cadeiras_2ano_2semestre %}
+            {% for cadeira in cadeiras %}
+                {% if cadeira.ano == 2 and cadeira.semestre == "2ºsemestre" %}
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeiras_2ano_2semestre.projetos %}
+                        {% for projeto in cadeira.projeto %}
                             {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
@@ -139,6 +146,7 @@
                         {% endif %}
                     </div>
                 </div>
+                {% endif %}
             {% empty %}
                 <div class="sem_cadeira">
                     <h3>Sem Unidades Curriculares associadas</h3>
@@ -150,14 +158,15 @@
     <div class="anos">
         <h2>1º semestre</h2>
         <div class="semestre">
-            {% for cadeira in cadeiras_3ano_1semestre %}
+            {% for cadeira in cadeiras %}
+                {% if cadeira.ano == 3 and cadeira.semestre == "1ºsemestre" %}
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeiras_3ano_1semestre.projetos %}
+                        {% for projeto in cadeira.projeto %}
                             {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
@@ -175,6 +184,7 @@
                         {% endif %}
                     </div>
                 </div>
+                {% endif %}
             {% empty %}
                 <div class="sem_cadeira">
                     <h3>Sem Unidades Curriculares associadas</h3>
@@ -183,14 +193,15 @@
         </div>
         <h2>2º semestre</h2>
         <div class="semestre">
-            {% for cadeira in cadeiras_3ano_2semestre %}
+            {% for cadeira in cadeiras %}
+                {% if cadeira.ano == 3 and cadeira.semestre == "2ºsemestre" %}
                 <div class="cadeira">
                     <h3>{{ cadeira.nome }} </h3>
                     <p>{{ cadeira.descricao }}</p>
                     <p>Professor/a das teóricas: {{ cadeira.docente_teorica }}</p>
                     <p>Professor/a das práticas: {{ cadeira.docentes_pratica }}</p>
                     <p>Projeto desenvolvido:
-                        {% for projeto in cadeiras_3ano_2semestre.projetos %}
+                        {% for projeto in cadeira.projeto %}
                             {{ projeto.titulo }}
                         {% empty %}
                             Sem projeto
@@ -208,6 +219,7 @@
                         {% endif %}
                     </div>
                 </div>
+                {% endif %}
             {% empty %}
                 <div class="sem_cadeira">
                     <h3>Sem Unidades Curriculares associadas</h3>

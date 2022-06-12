@@ -38,7 +38,7 @@ class Post(models.Model):
 
 
 class Competencia(models.Model):
-    nome = models.CharField(max_length=20)
+    nome = models.CharField(max_length=50)
     decricao = models.CharField(max_length=2000)
 
     def __str__(self):
@@ -54,7 +54,7 @@ class Pessoa(models.Model):
 
 
 class Tecnologia(models.Model):
-    nome = models.CharField(max_length=20)
+    nome = models.CharField(max_length=50)
     decricao = models.CharField(max_length=2000)
     acronimo = models.CharField(max_length=20)
     ano = models.IntegerField()
@@ -112,7 +112,7 @@ class Projeto(models.Model):
     imagem = models.ImageField(upload_to=resolution_path_projects, null=True, blank=True)
 
     def __str__(self):
-        return self.titulo[:20]
+        return self.titulo
 
 
 class Cadeira(models.Model):

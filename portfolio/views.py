@@ -32,14 +32,9 @@ def aboutme_page_view(request):
     elementos = Cadeira.objects.all()
 
     for elemento in elementos:
-        elemento.__dict__["projetos"] = list(Projeto.objects.filter(projetos__id=elemento.id))
+        elemento.__dict__["projeto"] = list(Projeto.objects.filter(projetos__id=elemento.id))
 
-    context = {'cadeiras_1ano_1semestre': elementos.filter(semestre='1ºsemestre', ano=1),
-               'cadeiras_1ano_2semestre': elementos.filter(semestre='2ºsemestre', ano=1),
-               'cadeiras_2ano_1semestre': elementos.filter(semestre='1ºsemestre', ano=2),
-               'cadeiras_2ano_2semestre': elementos.filter(semestre='2ºsemestre', ano=2),
-               'cadeiras_3ano_1semestre': elementos.filter(semestre='1ºsemestre', ano=3),
-               'cadeiras_3ano_2semestre': elementos.filter(semestre='2ºsemestre', ano=3),
+    context = {'cadeiras': elementos,
                'competencias': Competencia.objects.all(),
                }
 
@@ -155,6 +150,7 @@ def projetos_apaga_projeto_view(request, projeto_id):
     Projeto.objects.get(pk=projeto_id).delete()
     return HttpResponseRedirect(reverse('portfolio:projetos'))
 
+
 @login_required
 def tfcs_novo_tfc_view(request):
     if request.method == "POST":
@@ -243,6 +239,7 @@ def web_page_view(request):
 
     context = {'tecnologias': elementos,
                'noticias': Noticia.objects.all()}
+
     return render(request, 'portfolio/web.html', context)
 
 

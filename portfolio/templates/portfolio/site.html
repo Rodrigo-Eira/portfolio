@@ -23,10 +23,16 @@
         <li>TFC</li>
         <li>Projeto</li>
     </ul>
+    <h1 class="principal">Digrama DER das Classes</h1>
+    <img src="/static/portfolio/images/Diagrama DER.png">
+    <h1 class="principal" >Site Map</h1>
+    <div id="map">
+        <img src="/static/portfolio/images/Sitemap.png">
+    </div>
     <br>
     <h1 class="principal">Tecnologias utilizadas na criação do site</h1>
     {% for tecnologia in tecnologias %}
-        {% if tecnologia.nome == "HTML" or tecnologia.nome == "CSS"  or tecnologia.nome == "Python" or tecnologia.nome == "Django"  or tecnologia.nome == "Heroku" or tecnologia.nome == "JavaScript" %}
+        {% if tecnologia.acronimo == "HTML" or tecnologia.acronimo == "CSS"  or tecnologia.nome == "Python" or tecnologia.nome == "Django"  or tecnologia.nome == "Heroku" or tecnologia.nome == "JavaScript" %}
             <div class="tecnologia">
                 <h3>{{ tecnologia.nome }} / {{ tecnologia.acronimo }}</h3>
                 <p>Criador:

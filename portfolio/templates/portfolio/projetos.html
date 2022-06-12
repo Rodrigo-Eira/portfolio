@@ -49,8 +49,12 @@
                         {% endfor %}
                     </p>
                     <p>Orientador: {{ tfc.orientador }}</p>
-                    <a href="{{ tfc.gitHub }}" class="btn btn-secondary">GitHub</a>
-                    <a href="{{ tfc.youtube }}" class="btn btn-secondary">Youtube</a>
+                    {% if  tfc.gitHub != None %}
+                        <a href="{{ tfc.gitHub }}" class="btn btn-secondary">GitHub</a>
+                    {% endif %}
+                    {% if  tfc.youtube != None %}
+                        <a href="{{ tfc.youtube }}" class="btn btn-secondary">Youtube</a>
+                    {% endif %}
                     <a href="{{ tfc.relatorio }}" class="btn btn-secondary">Relatório</a>
                     {% if request.user.is_authenticated %}
                         <a href="{% url 'portfolio:tfcs_edita_tfc' tfc.pk %}"
