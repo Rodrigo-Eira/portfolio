@@ -25,7 +25,7 @@
     </ul>
     <h1 class="principal">Digrama DER das Classes</h1>
     <img src="/static/portfolio/images/Diagrama DER.png">
-    <h1 class="principal" >Site Map</h1>
+    <h1 class="principal">Site Map</h1>
     <div id="map">
         <img src="/static/portfolio/images/Sitemap.png">
     </div>
@@ -46,5 +46,13 @@
             </div>
         {% endif %}
     {% endfor %}
+    <h1 class="principal">Video explicativo sobre o site</h1>
+    <div align="center">
+        <iframe mawidth="560" height="315" align="middle" src="https://www.youtube.com/embed/cPq0iEuA9iI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
     <h3 class="blog">Deixe um comentário na área do <a href="{% url 'portfolio:blog' %}">Blog</a></h3>
 {% endblock %}
